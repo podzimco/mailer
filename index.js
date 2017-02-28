@@ -19,7 +19,7 @@ const isValid = data => (
 
 const handler = async (req, res) => {
   if (req.method !== 'POST') {
-    return send(res, HttpStatus.METHOD_NOT_ALLOWED);
+    return send(res, HttpStatus.METHOD_NOT_ALLOWED, {});
   }
   const data = await json(req);
   if (!isValid(data)) {
@@ -37,9 +37,9 @@ const handler = async (req, res) => {
     })
   } catch (e) {
     /* handle error */
-    return send(res, HttpStatus.INTERNAL_SERVER_ERROR);
+    return send(res, HttpStatus.INTERNAL_SERVER_ERROR, {});
   }
-  return send(res, HttpStatus.OK);
+  return send(res, HttpStatus.OK, {});
 }
 
 module.exports = cors(handler);
