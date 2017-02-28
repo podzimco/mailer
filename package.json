@@ -1,0 +1,20 @@
+{
+  "name": "podzim-mailer",
+  "version": "0.1.0",
+  "description": "Podzim mailer",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro"
+  },
+  "repository": {},
+  "author": "Long Nguyen <long@nomadreact.com>",
+  "license": "MIT",
+  "dependencies": {
+    "http-status-codes": "^1.1.6",
+    "lodash": "^4.17.4",
+    "mailgun.js": "^2.0.1",
+    "micro": "^7.0.6",
+    "micro-cors": "^0.0.1",
+    "nl2br": "^0.0.3"
+  }
+}
