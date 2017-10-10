@@ -2,7 +2,7 @@ const HttpStatus = require('http-status-codes');
 const mailgun = require('mailgun.js');
 const { send, json } = require('micro');
 const isEmpty = require('lodash/isEmpty');
-const nl2br  = require('nl2br');
+const nl2br = require('nl2br');
 const microCors = require('micro-cors');
 const cors = microCors({ allowMethods: ['POST'] });
 const config = require('./config');
@@ -13,9 +13,11 @@ const mg = mailgun.client({
   public_key: config.MAILGUN_PUBLICKEY,
 });
 
-const isValid = data => (
-  !isEmpty(data) && !isEmpty(data.email) && !isEmpty(data.name) && !isEmpty(data.message)
-);
+const isValid = data =>
+  !isEmpty(data) &&
+  !isEmpty(data.email) &&
+  !isEmpty(data.name) &&
+  !isEmpty(data.message);
 
 const handler = async (req, res) => {
   if (req.method !== 'POST') {
@@ -33,14 +35,13 @@ const handler = async (req, res) => {
       to: ['long@podzim.co'],
       subject: `[podzim.co] New message from ${data.name}`,
       text: data.message,
-      html: `<p>${html}</p>`
-    })
+      html: `<p>${html}</p>`,
+    });
   } catch (e) {
     /* handle error */
     return send(res, HttpStatus.INTERNAL_SERVER_ERROR, {});
   }
   return send(res, HttpStatus.OK, {});
-}
+};
 
 module.exports = cors(handler);
-

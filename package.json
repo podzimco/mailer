@@ -1,5 +1,5 @@
 {
-  "name": "podzim-mailer",
+  "name": "@podzim/mailer",
   "version": "0.1.0",
   "description": "Podzim mailer",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "micro"
   },
   "repository": {},
-  "author": "Long Nguyen <long@nomadreact.com>",
+  "author": "Long Nguyen <long@podzim.co>",
   "license": "MIT",
   "dependencies": {
     "http-status-codes": "^1.1.6",
